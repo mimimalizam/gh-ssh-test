@@ -8,9 +8,15 @@ agent:
 blocks:
   - name: "Bundle install"
     task:
+      secrets:
+        # Mount the secret:
+        - name: private-repo
       jobs:
       - name: Fetch gems
         commands:
+          - chmod 0600 ~/.keys/*
+          # Add the key to the ssh agent:
+          - ssh-add ~/.keys/*
           - checkout
           - gem install --force bundler:2.0.1
           - bundle install --path vendor/bundle
