@@ -1,0 +1,15 @@
+version: v1.0
+name: First pipeline example
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+  - name: "Bundle install"
+    task:
+      jobs:
+      - name: Fetch gems
+        commands:
+          - checkout
+          - bundle install --path vendor/bundle
