@@ -12,4 +12,5 @@ blocks:
       - name: Fetch gems
         commands:
           - checkout
+          - gem install --force bundler:2.0.1
           - bundle install --path vendor/bundle
