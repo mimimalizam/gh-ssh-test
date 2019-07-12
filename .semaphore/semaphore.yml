@@ -8,6 +8,14 @@ agent:
 blocks:
   - name: "Bundle install"
     task:
+      prologue:
+        commands:
+          - rm -rf ~/.toolbox || true
+          - git clone -b lr/cache-improvements --single-branch https://github.com/semaphoreci/toolbox.git ~/.toolbox
+          - bash ~/.toolbox/install-toolbox
+          - source ~/.toolbox/toolbox
+          - echo 'source ~/.toolbox/toolbox' >> ~/.bash_profile
+          - ls -lah
       secrets:
         # Mount the secret:
         - name: private-repo
@@ -20,3 +28,5 @@ blocks:
           - checkout
           - gem install --force bundler:2.0.1
           - bundle install --path vendor/bundle
+          - cache store
+          - cache store check-this-log
