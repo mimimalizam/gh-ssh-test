@@ -27,6 +27,9 @@ blocks:
         - name: private-repo
       prologue:
         commands:
+          - chmod 0600 ~/.keys/*
+          # Add the key to the ssh agent:
+          - ssh-add ~/.keys/*
           - sudo apt install -y tree
           - checkout
           - echo $GOOGLE_APPLICATION_CREDENTIALS
