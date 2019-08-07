@@ -22,6 +22,9 @@ blocks:
           - bundle install --path vendor/bundle
   - name: "Artifacts test block"
     task:
+      secrets:
+        # Mount the secret:
+        - name: private-repo
       prologue:
         commands:
           - sudo apt install -y tree
