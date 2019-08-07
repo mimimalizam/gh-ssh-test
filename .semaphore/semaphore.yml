@@ -32,9 +32,8 @@ blocks:
           - ssh-add ~/.keys/*
           - sudo apt install -y tree
           - checkout
-          - echo $GOOGLE_APPLICATION_CREDENTIALS
-          - cat /home/semaphore/artifact_credentials.json
-          - wget https://github.com/semaphoreci/artifact/releases/download/v0.1.1/artifact_Linux_x86_64.tar.gz
+          - env
+          - wget https://github.com/semaphoreci/artifact/releases/download/v0.2.2/artifact_Linux_x86_64.tar.gz
           - tar xzf artifact_Linux_x86_64.tar.gz
           - echo "Hello Artifacts" > README.md
           - sudo mv artifact /usr/bin/
