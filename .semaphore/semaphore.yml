@@ -12,3 +12,5 @@ blocks:
           commands:
             - sem-version ruby 2.6.5
             - bundler --version
+            - sudo apt-get update
+            - install-package gdal-bin libgeos-dev libproj-dev libgeos-3.4.2 libproj0 python-gdal
