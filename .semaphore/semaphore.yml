@@ -23,6 +23,13 @@ blocks:
   - name: "Checking parallelism"
     task:
       jobs:
+      - name: Another parallelism
+        parallelism: 3
+        commands:
+          - env | grep SEMAPHORE
+      - name: Job outside of parallelism
+        commands:
+          - env
       - name: Explore env
         parallelism: 6
         commands:
