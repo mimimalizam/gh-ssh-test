@@ -35,3 +35,5 @@ blocks:
         commands:
           - env
           - env | grep SEMAPHORE
+          - if [ "$SEMAPHORE_JOB_INDEX/$SEMAPHORE_JOB_COUNT" == "1/6" ]; then echo "this is running maybe"; fi
+          - if [ "$SEMAPHORE_JOB_NAME" == "Explore env - 1/6" ]; then echo "this is also running maybe"; fi
