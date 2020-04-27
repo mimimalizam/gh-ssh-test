@@ -10,4 +10,5 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - checkout
+            - sem-version ruby 2.6.5
+            - bundler --version
