@@ -1,3 +1,4 @@
+---
 version: v1.0
 name: First pipeline example
 agent:
@@ -12,11 +13,10 @@ blocks:
         # Mount the secret:
         - name: private-repo
       jobs:
-      - name: Fetch gems
+      - name: Check Ruby and Budnler
         commands:
-          - chmod 0600 ~/.keys/*
-          # Add the key to the ssh agent:
-          - ssh-add ~/.keys/*
+          - bundler --version
+          - sem-version ruby 2.6.5
           - bundler --version
           - gem install --force bundler:1.17.3
           - bundler --version
