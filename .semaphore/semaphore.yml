@@ -17,6 +17,14 @@ blocks:
           - chmod 0600 ~/.keys/*
           # Add the key to the ssh agent:
           - ssh-add ~/.keys/*
-          - checkout
-          - gem install --force bundler:2.0.1
-          - bundle install --path vendor/bundle
+          - bundler --version
+          - gem install --force bundler:1.17.3
+          - bundler --version
+  - name: "Checking parallelism"
+    task:
+      jobs:
+      - name: Explore env
+        parallelism: 6
+        commands:
+          - env
+          - env | grep SEMAPHORE
