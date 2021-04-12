@@ -13,6 +13,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - checkout
-            - artifact push job README.md
-            - artifact push workflow README.md
-            - artifact push project -f README.md
+            - artifact push job Gemfile
